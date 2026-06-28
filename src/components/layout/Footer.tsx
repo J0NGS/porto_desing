@@ -2,6 +2,8 @@ import { Container, Flex, Group, Text, Anchor, Divider, Stack, rem, useComputedC
 import { navigationLinks } from '@/data/navigation'
 import logoBlack from '@/assets/logo-black.svg'
 import logoWhite from '@/assets/logo-white.svg'
+import jongsLogoBlack from '@/assets/JONGS.svg'
+import jongsLogoWhite from '@/assets/jongs-white.svg'
 
 export function Footer() {
   const computedColorScheme = useComputedColorScheme('light')
@@ -9,6 +11,7 @@ export function Footer() {
 
   const currentYear = new Date().getFullYear()
   const logo = isDark ? logoWhite : logoBlack
+  const jongsLogo = isDark ? jongsLogoWhite : jongsLogoBlack
 
   return (
     <footer
@@ -28,11 +31,22 @@ export function Footer() {
             gap="xl"
             wrap="wrap"
           >
-            <img
-              src={logo}
-              alt="Daniel Porto Design"
-              style={{ display: 'block', height: 16, width: 'auto', maxWidth: '100%' }}
-            />
+            <Flex align="center" gap="md" direction={{ base: 'column', xs: 'row' }}>
+              <img
+                src={logo}
+                alt="Daniel Porto Design"
+                style={{ display: 'block', height: 16, width: 'auto' }}
+              />
+              <Divider orientation="vertical" h={20} visibleFrom="xs" />
+              <Flex align="center" gap={8}>
+                <Text size="xs" c="dimmed">Desenvolvido por</Text>
+                <img
+                  src={jongsLogo}
+                  alt="JONGS"
+                  style={{ display: 'block', height: 28, width: 'auto', opacity: 0.7 }}
+                />
+              </Flex>
+            </Flex>
 
             <Group gap="lg" wrap="wrap" justify="center">
               {navigationLinks.map((link) => (
