@@ -1,0 +1,120 @@
+.overlay {
+  width: 100%;
+  height: 100%;
+  padding: 5% 8%;
+  display: flex;
+  align-items: stretch;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 0;
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.imageArea {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 0;
+}
+
+.imageWrapper {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.imageFrame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 6px;
+  animation: fadeIn 200ms ease;
+}
+
+.blurBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(28px);
+  transform: scale(1.15);
+  opacity: 0.5;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: 100%;
+  background: linear-gradient(135deg, #272320 0%, #161412 100%);
+  border-radius: 6px;
+  animation: fadeIn 200ms ease;
+}
+
+.arrow {
+  flex-shrink: 0;
+}
+
+.arrow[disabled] {
+  opacity: 0.2;
+}
+
+.dots {
+  flex-shrink: 0;
+  padding-bottom: 4px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: #5c5652;
+  padding: 0;
+  transition: background 200ms ease, transform 200ms ease;
+}
+
+.dotActive {
+  background: #d8d4d1;
+  transform: scale(1.3);
+}
+
+@media (max-width: 47.99em) {
+  .overlay {
+    padding: 16px;
+  }
+}

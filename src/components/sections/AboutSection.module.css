@@ -1,0 +1,59 @@
+.section {
+  padding-block: 7rem;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  aspect-ratio: 4 / 3;
+  background-color: var(--mantine-color-brand-2);
+}
+
+[data-mantine-color-scheme='dark'] .imageWrapper {
+  background-color: var(--mantine-color-brand-8);
+}
+
+.blurBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(24px);
+  transform: scale(1.15);
+  opacity: 0.6;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--mantine-color-brand-2) 0%,
+    var(--mantine-color-brand-3) 100%
+  );
+}
+
+[data-mantine-color-scheme='dark'] .placeholder {
+  background: linear-gradient(
+    135deg,
+    var(--mantine-color-brand-7) 0%,
+    var(--mantine-color-brand-8) 100%
+  );
+}
+
+@media (max-width: 47.99em) {
+  .section {
+    padding-block: 4rem;
+  }
+}

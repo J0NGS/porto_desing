@@ -1,0 +1,44 @@
+.wrapper {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  z-index: 300;
+}
+
+@media (max-width: 47.99em) {
+  .wrapper {
+    display: none;
+  }
+}
+
+.toggle {
+  position: relative;
+}
+
+.sun,
+.moon {
+  position: absolute;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* Tema escuro ativo: mostra sol (para ir ao claro), esconde lua */
+[data-mantine-color-scheme='dark'] .sun {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+[data-mantine-color-scheme='dark'] .moon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+/* Tema claro ativo: mostra lua (para ir ao escuro), esconde sol */
+[data-mantine-color-scheme='light'] .sun {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+[data-mantine-color-scheme='light'] .moon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}

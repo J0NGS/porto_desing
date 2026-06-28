@@ -1,0 +1,87 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imageWrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  aspect-ratio: 4 / 3;
+  background-color: var(--mantine-color-brand-2);
+}
+
+[data-mantine-color-scheme='dark'] .imageWrapper {
+  background-color: var(--mantine-color-brand-8);
+}
+
+.featured {
+  grid-column: span 2;
+}
+
+.featured .imageWrapper {
+  aspect-ratio: 16 / 7;
+}
+
+@media (max-width: 47.99em) {
+  .featured {
+    grid-column: span 1;
+  }
+
+  .featured .imageWrapper {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.blurBg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(20px);
+  transform: scale(1.15);
+  opacity: 0.75;
+  transition: transform 500ms ease;
+}
+
+.image {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 500ms ease;
+}
+
+.card:hover .image {
+  transform: scale(1.03);
+}
+
+.card:hover .blurBg {
+  transform: scale(1.18);
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    var(--mantine-color-brand-2) 0%,
+    var(--mantine-color-brand-3) 100%
+  );
+}
+
+[data-mantine-color-scheme='dark'] .placeholder {
+  background: linear-gradient(
+    135deg,
+    var(--mantine-color-brand-7) 0%,
+    var(--mantine-color-brand-8) 100%
+  );
+}
+
+.info {
+  padding: 0 2px;
+}
